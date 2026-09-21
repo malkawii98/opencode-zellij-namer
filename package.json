@@ -1,24 +1,30 @@
 {
-  "name": "opencode-zellij-namer",
-  "version": "1.1.3",
-  "description": "AI-powered dynamic Zellij session naming for OpenCode",
+  "name": "@malkawii98/opencode-zellij-namer",
+  "version": "2.0.0",
+  "description": "Gemini-powered Zellij tab naming for OpenCode V2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./tui": "./dist/tui.js",
+    "./v1": "./dist/v1.js"
+  },
   "scripts": {
     "build": "tsc",
+    "install:local": "bun run build && bun scripts/install.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/24601/opencode-zellij-namer.git"
+    "url": "git+https://github.com/malkawii98/opencode-zellij-namer.git"
   },
   "bugs": {
-    "url": "https://github.com/24601/opencode-zellij-namer/issues"
+    "url": "https://github.com/malkawii98/opencode-zellij-namer/issues"
   },
-  "homepage": "https://github.com/24601/opencode-zellij-namer#readme",
+  "homepage": "https://github.com/malkawii98/opencode-zellij-namer#readme",
   "keywords": [
     "opencode",
     "zellij",
@@ -33,12 +39,14 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.3.0"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0"
   },
   "devDependencies": {
+    "@opencode/client": "2.0.12",
+    "@opencode/plugin": "2.0.12",
     "@types/bun": "^1.1.0",
     "@types/node": "^20.0.0",
     "typescript": "^5.0.0"
@@ -49,6 +57,7 @@
   "files": [
     "dist",
     "README.md",
+    "README-v1.md",
     "LICENSE",
     "CHANGELOG.md"
   ]

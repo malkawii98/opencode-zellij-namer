@@ -1,5 +1,18 @@
 # AGENTS.md
 
+## V2 fork (current architecture)
+
+This fork targets OpenCode V2. `src/tui.ts` is the terminal-only implementation and
+`src/tui.test.ts` tests its real controller. `src/index.ts` is a no-op server
+companion; `src/v1.ts` and the original tests preserve the upstream V1 behavior.
+Run `bun run install:local` to install discovered entrypoints. Never use the shared server's
+environment to identify the user's Zellij pane. Read the local TUI route and
+session cache. Retain Gemini-generated task names and multi-pane tab composition.
+The `@opencode/*` development packages provide types; their imports in `tui.ts`
+are type-only. Runtime naming still only depends on `@google/generative-ai`.
+Use `bun run typecheck`, `bun test`, and `bun run build` before publishing changes.
+The sections below describe the original V1 implementation where they differ.
+
 This file provides guidance for AI agents (like OpenCode, Claude, GPT, Cursor, etc.) working on this codebase.
 
 ## Project Overview
